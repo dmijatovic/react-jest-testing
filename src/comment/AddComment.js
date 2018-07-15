@@ -23,7 +23,7 @@ class AddComment extends React.Component{
   handleSubmit = event =>{
     //prevent reloading page
     event.preventDefault();
-    console.log("handleSubmit...", this.state.comment);
+    //console.log("handleSubmit...", this.state.comment);
     //clean text component 
     this.setState({comment:''});
   }
