@@ -3,7 +3,37 @@
 .app{
 
   &-add-comment{
-    
+    display:flex;
+    flex-direction: column;
+    padding: 1rem;
+  }
+}
+
+.add-comment{
+  &-label{
+    margin-bottom: 1rem;
   }
 
+  &-input{
+    height: 10rem;
+    width: 30rem;
+    font: inherit;
+    padding: 0.5rem;
+    border: var(--border);
+    color: var(--color-dark-1);
+  }
+  &-input:focus{
+    outline: none;
+    box-shadow: var(--box-shadow-md);
+  }
+
+  &-btn{
+    margin-top: 1rem;
+    padding: 1rem;
+  }
+
+  &-btn:focus{
+    outline: none;
+    //border: none;
+  }
 }
