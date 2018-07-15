@@ -26,6 +26,12 @@
     font-size: 1.25rem;
   }
 
+  &-content{
+    flex:1;
+    display: flex;
+    background-color: var(--color-light-4);
+  }
+
 }
 
 
