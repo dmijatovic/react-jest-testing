@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import logo from './img/logo.svg';
-import './App.scss';
+import logo from 'img/logo.svg';
+import 'App.scss';
 
-import AddComment from './comment/AddComment';
-import ViewComments from './comment/ViewComments';
+import AddComment from 'comment/AddComment';
+import ViewComments from 'comment/ViewComments';
 
 class App extends Component {
   render() {

@@ -1,30 +1,33 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import Adapter from 'setupEnzyme';
+import { shallow } from 'enzyme';
 
-import AddComment from './comment/AddComment';
+import App from 'App';
+import AddComment from 'comment/AddComment';
+import ViewComments from 'comment/ViewComments';
 
-
-let div;
+let wrapper;
 beforeEach(()=>{
-  div = document.createElement('div');
-  ReactDOM.render(<App />, div);
+  wrapper =  shallow(<App />);
+  //div = document.createElement('div');
+  //ReactDOM.render(<App />, div);
 });
 
 it('renders without crashing', () => { 
-  expect(div).toBeTruthy();
+  expect(wrapper.instance()).toBeTruthy();
 });
 
-it('has add comment box', () => { 
-  expect(div.innerHTML).toContain(AddComment({className:"app-add-comment"}));
+it('has 1 AddComment component', () => { 
+  expect(wrapper.find(AddComment).length).toEqual(1);
 });
 
-it('has view comments box', () => { 
-  expect(div.innerHTML).toContain("View comments");
+it('has 1 ViewComments component', () => { 
+  expect(wrapper.find(ViewComments).length).toEqual(1);
 });
+
 
 afterEach(()=>{
-  ReactDOM.unmountComponentAtNode(div);
+  wrapper = null;
 });
 
 

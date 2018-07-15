@@ -67,6 +67,23 @@ my-app/
     registerServiceWorker.js
 ```
 
+## Using static file paths (.env file)
 
-## Notes about testing with Jest
+In this project we use static file path refrence. The approach is proped by instructor as having advantage of easier path adaptations when moving files. The .env file setup is supported by create-react-app scripts.
 
+
+## Notes about testing with Jest & Enzyme
+
+Here I put some personal notes about testing with Jest and Enzyme. 
+
+### setupTest.js (setupEnzyme.js) file to setup Enzyme adapter with Jest
+
+This file is expected in create-react-app setup with Jest testig suite. However this setup did not worked properly in my case. I would receive Enzyme error that adapter function is not initialized. Therefore I renamed file to setupEnzyme and import it into *.test.js files to have Enzyme adapter initialized. 
+
+### Enzyme API
+
+It renders React components without browser. It has 3 renedering modes:
+
+- Static: renders React component and returns plain HTML
+- Shallow: renders given React component but NOT its children components
+- Full DOM: renders React component and all its children (we can modify all components) 
