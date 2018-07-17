@@ -2,6 +2,9 @@ import React from 'react';
 
 import './AddComment.scss';
 
+import {connect} from 'react-redux';
+import { addComment } from 'store/actionComments';
+
 /* sample functional component
 export default (props) => {
   return (
@@ -24,6 +27,7 @@ class AddComment extends React.Component{
     //prevent reloading page
     event.preventDefault();
     //console.log("handleSubmit...", this.state.comment);
+    this.props.addComment(this.state.comment);
     //clean text component 
     this.setState({comment:''});
   }
@@ -36,12 +40,21 @@ class AddComment extends React.Component{
         <label className="add-comment-label">Type your comment below</label>
         <textarea 
           className="add-comment-input"
-          value = { this.state.comment }
-          onChange={this.handleChange} />
+          value = {this.state.comment}
+          onChange = {this.handleChange} />
         <button className="btn btn-white add-comment-btn">Save</button> 
       </form>
     )
   }
 }
 
-export default AddComment;
+const mapDispatchToProps = (dispatch) => {
+  debugger 
+  return{
+    addComment: (comment) => dispatch(addComment(comment))
+  }
+}
+
+export default connect(
+  null, mapDispatchToProps
+)(AddComment);

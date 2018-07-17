@@ -4,6 +4,8 @@ import './styles/index.scss';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
+import ReduxStore from './store/redux';
+/*
 import { Provider }from 'react-redux';
 import { createStore } from 'redux';
 import reducers from 'store/reducers';
@@ -11,11 +13,12 @@ import reducers from 'store/reducers';
 //create store with reducers and initial 
 //value 
 let myStore = createStore(reducers, {});
+*/
 
 ReactDOM.render(
-  <Provider store={myStore}>
+  <ReduxStore>
     <App />
-  </Provider>, 
+  </ReduxStore>, 
   document.getElementById('root')
 );
 

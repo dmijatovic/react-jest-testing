@@ -3,6 +3,7 @@ import Adapter from 'setupEnzyme';
 import { mount, shallow, render } from 'enzyme';
 
 import AddComment from 'comment/AddComment';
+import ReduxStore from 'store/redux';
 
 /**
  * Here we should use shallow, but let test 
@@ -16,7 +17,11 @@ import AddComment from 'comment/AddComment';
 
 let component;
 beforeEach(()=>{
-  component = mount(<AddComment/>);
+  component = mount(
+    <ReduxStore>
+      <AddComment/>
+    </ReduxStore>
+  );
 })
 
 it('has 1 textarea element',()=>{
