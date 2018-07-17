@@ -80,3 +80,8 @@ It renders React components without browser. It has 3 renedering modes:
 - Static: renders React component and returns plain HTML
 - Shallow: renders given React component but NOT its children components
 - Full DOM: renders React component and all its children (we can modify all components) 
+
+
+### Axios, Redux-Promise and Moxios
+
+These three work very well together for integrating http calls into a redux store (axios and redux-promise, see store action and reducer for fetchComments). For (integration) testing moxios is used to mock axios http calls (from JSDOM there is no external call possible).

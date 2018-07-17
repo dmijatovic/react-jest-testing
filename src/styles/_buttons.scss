@@ -29,8 +29,8 @@
 }
 
 //on click lower down (from inital position)
-.btn:active,
-.btn:focus{
+.btn:active{
+//.btn:focus{
   transform: translateY(0.05em);
   box-shadow: var(--box-shadow-2);
 }

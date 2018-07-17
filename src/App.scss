@@ -34,6 +34,18 @@
 
 }
 
+.btn-nav{
+  background-color: var(--color-primary);
+  color: var(--color-light-0);
+  border-radius: 0;
+  cursor: pointer;
+}
+
+.btn-nav:focus{
+  outline:none;
+  transform: translate(0);
+}
+
 
 @keyframes app-logo-spin {
   from { transform: rotate(0deg); }

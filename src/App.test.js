@@ -2,7 +2,8 @@ import React from 'react';
 import Adapter from 'setupEnzyme';
 import { shallow } from 'enzyme';
 
-import App from 'App';
+//just use class for testing - not redux wrapped
+import { App } from 'App';
 import AddComment from 'comment/AddComment';
 import ViewComments from 'comment/ViewComments';
 

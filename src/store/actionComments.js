@@ -27,13 +27,14 @@ export const deleteComment = (id) =>{
 
 /**
  * Async action using axios
+ * at this stage we assign axios promise to be payload of the action
  */
+export const FETCH_URL = 'http://jsonplaceholder.typicode.com/comments'; 
 export const fetchComments = () =>{
-  const url = 'http://jsonplaceholder.typicode.com/comments';
-  const resp = axios.get(url);
-
+  const httpGet = axios.get(FETCH_URL);
+  debugger
   return {
     type: actionType.FETCH_COMMENTS,
-    payload: response
+    payload: httpGet
   }
 }

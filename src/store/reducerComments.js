@@ -20,6 +20,18 @@ export default (state=[], action) => {
         ...state.slice(0, action.payload),
         ...state.slice(action.payload + 1)
       ]
+
+    case actionType.FETCH_COMMENTS:
+      debugger 
+      //redux-promise middleware we return data prop 
+      //in the payload. What about errors?
+      let data = action.payload.data.map((d)=>{
+        return d.name
+      });
+      return [
+        ...state,
+        ...data 
+      ]
     default:
       return state;
   }

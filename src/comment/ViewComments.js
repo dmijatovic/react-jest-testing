@@ -29,7 +29,7 @@ export class ViewComments extends React.Component{
   render(){
     return(
       <div className={this.props.className}>
-        <h3 className="app-view-comments-title">Comments</h3>
+        <h3 className="app-view-comments-title">Comments ({this.props.comments.length})</h3>
         <div className="app-view-comments-container">
          
           {this.loadComments()}
