@@ -7,7 +7,7 @@ import * as actionType from 'store/actionTypes';
  * @param comment:string 
  */
 export const addComment = (comment) =>{
-  console.log("addComment...", comment);
+  //console.log("addComment...", comment);
   return {
     type: actionType.ADD_COMMENT,
     payload: comment 
@@ -15,7 +15,7 @@ export const addComment = (comment) =>{
 }
 
 export const deleteComment = (id) =>{
-  console.log("deleteComment...", id);
+  //console.log("deleteComment...", id);
   return {
     type: actionType.DELETE_COMMENT,
     payload: id

@@ -3,7 +3,7 @@ import React from 'react';
 import './AddComment.scss';
 
 import {connect} from 'react-redux';
-import { addComment } from 'store/actionComments';
+import { addComment } from 'store/actions';
 
 /* sample functional component
 export default (props) => {
@@ -49,7 +49,7 @@ class AddComment extends React.Component{
 }
 
 const mapDispatchToProps = (dispatch) => {
-  debugger 
+  //debugger 
   return{
     addComment: (comment) => dispatch(addComment(comment))
   }

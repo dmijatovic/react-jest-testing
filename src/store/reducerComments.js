@@ -5,8 +5,8 @@ import * as actionType from './actionTypes';
 
 // COMMENTS REDUCER function
 export default (state=[], action) => {
-  logger ("commentsReducer...", state, action);
-  debugger
+  //logger ("commentsReducer...", state, action);
+  //debugger
   switch(action.type){
     case actionType.ADD_COMMENT:
       return [
