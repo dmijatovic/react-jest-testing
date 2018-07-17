@@ -15,6 +15,7 @@ export default (state=[], action) => {
         action.payload
       ]
     case actionType.DELETE_COMMENT:
+      //debugger
       return [
         ...state.slice(0, action.payload),
         ...state.slice(action.payload + 1)

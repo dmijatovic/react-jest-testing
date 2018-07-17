@@ -6,8 +6,10 @@
   display: flex;
   flex-direction: column;
 
-  &-title,
-  &-container{
+  &-title{
     padding: 1rem;
+  }
+  &-container{
+    padding: 0rem 1rem;
   }
 }

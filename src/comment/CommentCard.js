@@ -1,5 +1,7 @@
 import React from 'react';
 
+import 'comment/CommentCard.scss';
+
 export default (props)=>{
   return(
     <section className="comment-card">
@@ -8,8 +10,8 @@ export default (props)=>{
           id: {props.id}
         </h4>
         <button 
-          className="btn"
-          onClick={props.deleteComment}>X</button>
+          className="btn comment-card-btn"
+          onClick={props.onDeleteComment}>X</button>
       </header>
       <article className="comment-card-body">
         <p>{props.comment}</p>

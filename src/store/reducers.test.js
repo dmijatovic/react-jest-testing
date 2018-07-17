@@ -14,9 +14,18 @@ describe ('commentsReducer',()=>{
       };
     
     let newState = commentReducer([],action);
-    
     expect(newState).toEqual([action.payload]);
+  });
 
+  it('should delete comment [pos=1] from store',()=>{
+    let initState=['test1', 'test2', 'test3'],
+      action={
+        type: actionType.DELETE_COMMENT,
+        payload: 1
+      },
+      expectedState=['test1', 'test3'];
+    let newState = commentReducer(initState,action);
+    expect(newState).toEqual(expectedState);
   })
 
 })

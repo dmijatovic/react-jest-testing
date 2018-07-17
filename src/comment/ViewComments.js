@@ -18,12 +18,13 @@ export class ViewComments extends React.Component{
           id={index}
           comment={item}
           key={index}
-          deleteComment={this.deleteComment} />)
+          onDeleteComment={() => this.deleteComment(index)} />)
       }) 
     )
   }
   deleteComment=(id)=>{
-    console.log("deleteComment...", id);
+   // console.log("deleteComment...", id);
+   this.props.deleteComment(id);
   }
   render(){
     return(
