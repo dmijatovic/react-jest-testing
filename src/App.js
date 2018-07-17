@@ -1,13 +1,17 @@
 //React
 import React, { Component } from 'react';
+import { Route, Link } from 'react-router-dom';
 //Redux
 import {connect} from 'react-redux';
 import { fetchComments } from 'store/actions';
 //App local
 import logo from 'img/logo.svg';
 import 'App.scss';
+
+import Home from 'home/home';
 import AddComment from 'comment/AddComment';
 import ViewComments from 'comment/ViewComments';
+import AuthPage from 'auth/login';
 
 export class App extends Component {
   fetchComments = () => {
@@ -23,15 +27,31 @@ export class App extends Component {
         </header>
         
         <section className="app-navigation">
+          <Link to="home" className="btn btn-sm btn-nav" tag="button">Home</Link>
+          <Link to="post" className="btn btn-sm btn-nav" >Post</Link>
+          <Link to="list" className="btn btn-sm btn-nav" >List</Link>
+          <Link to="auth" className="btn btn-sm btn-nav" >Login</Link>
+          
+          {/*
           <button className="btn btn-sm btn-nav"
             id="fetch-comments"
             onClick={this.fetchComments}>Fetch comments
           </button>
+          */}
         </section>
         
         <section className="app-content">
+          
+          <Route path="/post" component={AddComment} />
+          <Route path="/list" component={ViewComments} />
+          <Route path="/home" component={Home} />
+          <Route path="/auth" component={AuthPage} />
+          <Route path="/" exact component={Home} />
+          
+          {/*
           <AddComment className="app-add-comment"/>
-          <ViewComments className="app-view-comments"/>          
+          <ViewComments className="app-view-comments"/>  
+          */}        
         </section>
         
       </div>

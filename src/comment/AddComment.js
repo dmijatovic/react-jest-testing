@@ -19,6 +19,23 @@ export default (props) => {
 class AddComment extends React.Component{
   state={comment:""}
 
+  componentDidMount(){
+    this.shouldNavigateAway();
+  }
+  componentDidUpdate(){
+    this.shouldNavigateAway();
+  }
+
+  shouldNavigateAway(){
+    if (this.props.auth){
+      console.log("Authorized");
+    }else{
+      console.log("Not authorized");
+      //redirect to auth page
+      this.props.history.push("auth");
+    }
+  }
+
   handleChange = event => {
     this.setState({comment: event.target.value });
   }
@@ -35,7 +52,7 @@ class AddComment extends React.Component{
   render(){
     return (
       <form onSubmit={this.handleSubmit} 
-        className={this.props.className}>
+        className="app-add-comment">
 
         <label className="add-comment-label">Type your comment below</label>
         <textarea 
@@ -48,6 +65,13 @@ class AddComment extends React.Component{
   }
 }
 
+const mapStateToProps = (state) => {
+  //debugger 
+  return {
+    auth: state.auth
+  }
+}
+
 const mapDispatchToProps = (dispatch) => {
   //debugger 
   return{
@@ -56,5 +80,6 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 export default connect(
-  null, mapDispatchToProps
+  mapStateToProps, 
+  mapDispatchToProps
 )(AddComment);

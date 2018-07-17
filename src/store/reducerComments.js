@@ -22,7 +22,7 @@ export default (state=[], action) => {
       ]
 
     case actionType.FETCH_COMMENTS:
-      debugger 
+      //debugger 
       //redux-promise middleware we return data prop 
       //in the payload. What about errors?
       let data = action.payload.data.map((d)=>{

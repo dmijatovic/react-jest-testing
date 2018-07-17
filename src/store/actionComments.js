@@ -32,7 +32,7 @@ export const deleteComment = (id) =>{
 export const FETCH_URL = 'http://jsonplaceholder.typicode.com/comments'; 
 export const fetchComments = () =>{
   const httpGet = axios.get(FETCH_URL);
-  debugger
+  //debugger
   return {
     type: actionType.FETCH_COMMENTS,
     payload: httpGet

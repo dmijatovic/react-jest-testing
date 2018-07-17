@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 import './styles/index.scss';
-import App from './App';
 import registerServiceWorker from './registerServiceWorker';
+
+import App from './App';
 
 import ReduxStore from './store/redux';
 /*
@@ -17,7 +19,9 @@ let myStore = createStore(reducers, {});
 
 ReactDOM.render(
   <ReduxStore>
-    <App />
+    <BrowserRouter>
+      <Route path="/" component={App} />
+    </BrowserRouter>
   </ReduxStore>, 
   document.getElementById('root')
 );
