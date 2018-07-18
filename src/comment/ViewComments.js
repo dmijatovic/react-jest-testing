@@ -3,6 +3,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {deleteComment} from 'store/actions';
 
+import AuthGuard from 'auth/authGuard';
 import CommentCard from 'comment/CommentCard';
 import './ViewComments.scss';
 /*
@@ -55,4 +56,4 @@ const mapActionToProps = dispatch =>{
 export default connect(
   mapStateToProps,
   mapActionToProps
-)(ViewComments)
+)(AuthGuard(ViewComments))
