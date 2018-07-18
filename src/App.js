@@ -28,8 +28,8 @@ export class App extends Component {
         
         <section className="app-navigation">
           <Link to="home" className="btn btn-sm btn-nav" tag="button">Home</Link>
-          <Link to="post" className="btn btn-sm btn-nav" >Post</Link>
-          <Link to="list" className="btn btn-sm btn-nav" >List</Link>
+          <Link to="post" className="btn btn-sm btn-nav" >Add comment</Link>
+          <Link to="list" className="btn btn-sm btn-nav" >All comments</Link>
           <Link to="auth" className="btn btn-sm btn-nav" >Login</Link>
           
           {/*
