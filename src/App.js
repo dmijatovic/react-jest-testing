@@ -14,10 +14,6 @@ import ViewComments from 'comment/ViewComments';
 import AuthPage from 'auth/AuthPage';
 
 export class App extends Component {
-  fetchComments = () => {
-    //console.log("fetch Comments"); 
-    this.props.onFetchComment();
-  }
   render() {
     return (
       <div className="app-body">

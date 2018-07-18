@@ -1,7 +1,9 @@
 import React from 'react';
 
 import {connect} from 'react-redux';
-import {deleteComment} from 'store/actions';
+import {
+  fetchComments, clearComments,
+  deleteComment} from 'store/actions';
 
 import AuthGuard from 'auth/authGuard';
 import CommentCard from 'comment/CommentCard';
@@ -19,24 +21,36 @@ export class ViewComments extends React.Component{
           id={index}
           comment={item}
           key={index}
-          onDeleteComment={() => this.deleteComment(index)} />)
+          onDeleteComment={() => this.props.onDeleteComment(index)} />)
       }) 
     )
   }
   deleteComment=(id)=>{
    // console.log("deleteComment...", id);
-   this.props.deleteComment(id);
+   this.props.onDeleteComment(id);
   }
   render(){
     return(
-      <div className={this.props.className}>
-        <h3 className="app-view-comments-title">Comments ({this.props.comments.length})</h3>
-        <div className="app-view-comments-container">
-         
-          {this.loadComments()}
-         
+      <section className="page-wrapper">
+        <div className="page-header">
+          <h1>
+            Comments ({this.props.comments.length})
+          </h1>
+          <div className="page-nav">
+            <button className="btn btn-sm btn-nav r-m-1"
+              id="fetch-comments"
+              onClick={this.props.onFetchComments}>Fetch comments
+            </button>
+            <button className="btn btn-sm btn-nav"
+              id="fetch-comments"
+              onClick={this.props.onClearComments}>Clear
+            </button>
+          </div>
         </div>
-      </div>
+        <div className="app-view-comments-container">
+          {this.loadComments()}
+        </div>
+      </section>
     )
   }
 }
@@ -49,7 +63,9 @@ const mapStateToProps = state =>{
 
 const mapActionToProps = dispatch =>{
   return {
-    deleteComment: (id) => dispatch(deleteComment(id))
+    onFetchComments: () => dispatch(fetchComments()),
+    onDeleteComment: (id) => dispatch(deleteComment(id)),
+    onClearComments: () => dispatch(clearComments()),
   }
 }
 

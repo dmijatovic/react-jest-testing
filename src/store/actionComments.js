@@ -38,3 +38,12 @@ export const fetchComments = () =>{
     payload: httpGet
   }
 }
+
+export const clearComments = () =>{
+  debugger
+  //console.log("deleteComment...", id);
+  return {
+    type: actionType.CLEAR_COMMENTS,
+    payload: []
+  }
+}

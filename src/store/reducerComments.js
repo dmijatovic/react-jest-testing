@@ -32,6 +32,9 @@ export default (state=[], action) => {
         ...state,
         ...data 
       ]
+    case actionType.CLEAR_COMMENTS:
+      //clear all comments
+      return [];
     default:
       return state;
   }

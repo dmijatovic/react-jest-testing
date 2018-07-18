@@ -3,7 +3,7 @@
 import * as actionType from './actionTypes';
 
 const initState={
-  allow: false,
+  allow: true,
   loginPath: 'auth'
 }
 
