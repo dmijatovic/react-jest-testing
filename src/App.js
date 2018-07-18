@@ -8,6 +8,7 @@ import { fetchComments } from 'store/actions';
 import logo from 'img/logo.svg';
 import 'App.scss';
 
+import PageLoader from 'ui/PageLoader';
 import Home from 'home/home';
 import AddComment from 'comment/AddComment';
 import ViewComments from 'comment/ViewComments';
@@ -36,7 +37,11 @@ export class App extends Component {
                 
         <section className="app-content">
           <Switch>
-            <Route path="/post" component={AddComment} />
+            <Route path="/post" render={ props =>(
+              <PageLoader {...props}>
+                <AddComment />
+              </PageLoader>
+            )}/>
             <Route path="/list" component={ViewComments} />
             <Route path="/home" component={Home} />
             <Route path="/auth" component={AuthPage} />

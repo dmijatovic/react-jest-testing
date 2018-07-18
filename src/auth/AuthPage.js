@@ -22,11 +22,11 @@ class AuthPage extends React.Component{
         </p>
         <h4 className="page-subtitle">User authenticated: { this.isAuthenticated() }</h4>  
         <p className="page-paragraph">
-          <button className="btn btn-md btn-primary r-m-1"
+          <button className="btn btn-sm btn-primary r-m-1"
             onClick={this.props.onLogin}>Login
           </button>
 
-          <button className="btn btn-md btn-white"
+          <button className="btn btn-sm btn-white"
             onClick={this.props.onLogout}>Logout
           </button>
         </p>
