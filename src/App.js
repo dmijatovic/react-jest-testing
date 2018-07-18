@@ -11,7 +11,7 @@ import 'App.scss';
 import Home from 'home/home';
 import AddComment from 'comment/AddComment';
 import ViewComments from 'comment/ViewComments';
-import AuthPage from 'auth/login';
+import AuthPage from 'auth/AuthPage';
 
 export class App extends Component {
   fetchComments = () => {

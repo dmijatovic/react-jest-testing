@@ -2,12 +2,23 @@
 
 import * as actionType from './actionTypes';
 
-export default (state=false, action)=>{
+const initState={
+  allow: false,
+  loginPath: 'auth'
+}
+
+export default (state=initState, action)=>{
   switch(action.type){
     case actionType.AUTH_LOGIN:
-      return action.payload;
+      return {
+        ...state,
+        allow: action.payload 
+      };
     case actionType.AUTH_LOGOUT:
-      return action.payload;
+      return {
+        ...state,
+        allow: action.payload 
+      };
     default:
       return state;
   }

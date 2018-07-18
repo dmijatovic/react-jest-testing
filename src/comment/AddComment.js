@@ -5,6 +5,8 @@ import './AddComment.scss';
 import {connect} from 'react-redux';
 import { addComment } from 'store/actions';
 
+import AuthGuard from 'auth/authGuard';
+
 /* sample functional component
 export default (props) => {
   return (
@@ -18,7 +20,7 @@ export default (props) => {
 
 class AddComment extends React.Component{
   state={comment:""}
-
+  /*
   componentDidMount(){
     this.shouldNavigateAway();
   }
@@ -34,7 +36,7 @@ class AddComment extends React.Component{
       //redirect to auth page
       this.props.history.push("auth");
     }
-  }
+  }*/
 
   handleChange = event => {
     this.setState({comment: event.target.value });
@@ -65,12 +67,13 @@ class AddComment extends React.Component{
   }
 }
 
+/*
 const mapStateToProps = (state) => {
   //debugger 
   return {
     auth: state.auth
   }
-}
+}*/
 
 const mapDispatchToProps = (dispatch) => {
   //debugger 
@@ -80,6 +83,6 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 export default connect(
-  mapStateToProps, 
+  null, 
   mapDispatchToProps
-)(AddComment);
+)(AuthGuard(AddComment));
