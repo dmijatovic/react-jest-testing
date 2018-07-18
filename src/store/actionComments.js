@@ -40,7 +40,7 @@ export const fetchComments = () =>{
 }
 
 export const clearComments = () =>{
-  debugger
+  //debugger
   //console.log("deleteComment...", id);
   return {
     type: actionType.CLEAR_COMMENTS,

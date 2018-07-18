@@ -8,10 +8,6 @@ import {
 import AuthGuard from 'auth/authGuard';
 import CommentCard from 'comment/CommentCard';
 import './ViewComments.scss';
-/*
-export default (props) => {
-  return <div className={props.className}>View comments component</div>
-}*/
 
 export class ViewComments extends React.Component{
   loadComments = () =>{
@@ -25,10 +21,11 @@ export class ViewComments extends React.Component{
       }) 
     )
   }
+  /* passed on directly into child as prop
   deleteComment=(id)=>{
    // console.log("deleteComment...", id);
    this.props.onDeleteComment(id);
-  }
+  }*/
   render(){
     return(
       <section className="page-wrapper">
@@ -37,11 +34,11 @@ export class ViewComments extends React.Component{
             Comments ({this.props.comments.length})
           </h1>
           <div className="page-nav">
-            <button className="btn btn-sm btn-nav r-m-1"
+            <button className="btn btn-sm btn-white r-m-1"
               id="fetch-comments"
               onClick={this.props.onFetchComments}>Fetch comments
             </button>
-            <button className="btn btn-sm btn-nav"
+            <button className="btn btn-sm btn-scondary"
               id="fetch-comments"
               onClick={this.props.onClearComments}>Clear
             </button>

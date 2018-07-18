@@ -35,6 +35,10 @@
   box-shadow: var(--box-shadow-2);
 }
 
+.btn:focus{
+  outline: none;
+}
+
 .ripple {
   position: relative;
   overflow: hidden;
