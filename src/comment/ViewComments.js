@@ -11,15 +11,19 @@ import './ViewComments.scss';
 
 export class ViewComments extends React.Component{
   loadComments = () =>{
-    return(
-      this.props.comments.map((item, index)=>{
-        return (<CommentCard 
-          id={index}
-          comment={item}
-          key={index}
-          onDeleteComment={() => this.props.onDeleteComment(index)} />)
-      }) 
-    )
+    if (this.props.comments.length==0){
+      return (<h1>No comments to show, try Fetch or ADD COMMENT.</h1>);
+    }else {
+      return(
+        this.props.comments.map((item, index)=>{
+          return (<CommentCard 
+            id={index}
+            comment={item}
+            key={index}
+            onDeleteComment={() => this.props.onDeleteComment(index)} />)
+        }) 
+      )
+    }
   }
   /* passed on directly into child as prop
   deleteComment=(id)=>{

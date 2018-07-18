@@ -28,6 +28,12 @@ export const Home = (props) => (
         on the specific button. The purpose of this demo is testing HOC 
         component and redux store integration.  
       </p>
+      <p className="page-paragraph">
+        In addition to functional HOC authGuard there is also page loader 
+        (auxillary) component that can be used to wrap a child (content) component. 
+        PageLoader component is integrated with the redux store and has its own
+        actions (show/hide loader and set loader type).
+      </p>
       <h3 className="page-subtitle">Custom Redux Middleware - promiseResolver</h3>
       <p className="page-paragraph">
         The branch middleware holds the code of custom Redux middleware.
