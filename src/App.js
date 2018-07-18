@@ -1,6 +1,6 @@
 //React
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Switch, Route, NavLink, Link } from 'react-router-dom';
 //Redux
 import {connect} from 'react-redux';
 import { fetchComments } from 'store/actions';
@@ -14,6 +14,16 @@ import ViewComments from 'comment/ViewComments';
 import AuthPage from 'auth/AuthPage';
 
 export class App extends Component {
+  getNavLinks(){
+    return (
+      <section className="app-navigation">
+        <NavLink to="/home" className="btn btn-sm btn-nav">Home</NavLink>
+        <NavLink to="/post" className="btn btn-sm btn-nav">Add comment</NavLink>
+        <NavLink to="/list" className="btn btn-sm btn-nav">All comments</NavLink>
+        <NavLink to="/auth" className="btn btn-sm btn-nav">Login</NavLink>
+      </section>
+    )
+  }
   render() {
     return (
       <div className="app-body">
@@ -22,28 +32,16 @@ export class App extends Component {
           <h1 className="app-title">Welcome to React - Jest demo</h1>
         </header>
         
-        <section className="app-navigation">
-          <Link to="home" className="btn btn-sm btn-nav" tag="button">Home</Link>
-          <Link to="post" className="btn btn-sm btn-nav" >Add comment</Link>
-          <Link to="list" className="btn btn-sm btn-nav" >All comments</Link>
-          <Link to="auth" className="btn btn-sm btn-nav" >Login</Link>
-          
-          {/*
-          <button className="btn btn-sm btn-nav"
-            id="fetch-comments"
-            onClick={this.fetchComments}>Fetch comments
-          </button>
-          */}
-        </section>
-        
+        {this.getNavLinks()}
+                
         <section className="app-content">
-          
-          <Route path="/post" component={AddComment} />
-          <Route path="/list" component={ViewComments} />
-          <Route path="/home" component={Home} />
-          <Route path="/auth" component={AuthPage} />
-          <Route path="/" exact component={Home} />
-          
+          <Switch>
+            <Route path="/post" component={AddComment} />
+            <Route path="/list" component={ViewComments} />
+            <Route path="/home" component={Home} />
+            <Route path="/auth" component={AuthPage} />
+            <Route path="/" exact component={Home} />
+          </Switch>  
           {/*
           <AddComment className="app-add-comment"/>
           <ViewComments className="app-view-comments"/>  

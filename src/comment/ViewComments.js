@@ -40,7 +40,7 @@ export class ViewComments extends React.Component{
             </button>
             <button className="btn btn-sm btn-scondary"
               id="fetch-comments"
-              onClick={this.props.onClearComments}>Clear
+              onClick={this.props.onClearComments}>Clear All
             </button>
           </div>
         </div>

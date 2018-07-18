@@ -33,18 +33,34 @@
     padding: 1rem;
   }
 
+  &-navigation{
+    display: flex;
+    background-color: var(--color-primary);
+    color: var(--color-light-0);
+    //padding: 0.7rem 0rem;
+  }
+
 }
 
 .btn.btn-nav{
+  min-width: 9rem;
   background-color: var(--color-primary);
   color: var(--color-light-0);
   border-radius: 0;
+  //border-bottom: 3px solid var(--color-primary);
   cursor: pointer;
 }
 
 .btn-nav:focus{
   outline:none;
   transform: translate(0);
+}
+
+.btn-nav.active{
+  background-color: var(--color-light-0);
+  color: var(--color-primary);
+  //border-bottom: 3px solid var(--color-light-0);
+  cursor: default;
 }
 
 
