@@ -38,8 +38,8 @@ export class App extends Component {
         <section className="app-content">
           <Switch>
             <Route path="/post" render={ props =>(
-              <PageLoader {...props}>
-                <AddComment />
+              <PageLoader>
+                <AddComment {...props}/>
               </PageLoader>
             )}/>
             <Route path="/list" component={ViewComments} />

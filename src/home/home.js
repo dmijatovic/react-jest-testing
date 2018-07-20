@@ -3,7 +3,7 @@ import React from 'react';
 import PageLoader from 'ui/PageLoader';
 
 export const Home = (props) => (
-  <PageLoader {...props}>
+  <PageLoader>
     <div className="home-page">
       <h1 className="page-title">Home Page</h1>
       <p className="page-paragraph">

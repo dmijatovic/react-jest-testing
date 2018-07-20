@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 
 /**
  * HOC - Higher Order Component - Composition
- * NOTE! HOC needs to pass all parent props are passed down to child
+ * NOTE! HOC needs to pass all parent props down to child
  * @param ChildComponent: class, child component that needs to be protected
  * 
  */
