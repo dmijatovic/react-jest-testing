@@ -13,6 +13,9 @@ import Home from 'home/home';
 import AddComment from 'comment/AddComment';
 import ViewComments from 'comment/ViewComments';
 import AuthPage from 'auth/AuthPage';
+import LoginPage from 'auth/LoginPage';
+import LogoutPage from 'auth/LogoutPage';
+
 
 export class App extends Component {
   getNavLinks(){
@@ -21,7 +24,8 @@ export class App extends Component {
         <NavLink to="/home" className="btn btn-sm btn-nav">Home</NavLink>
         <NavLink to="/post" className="btn btn-sm btn-nav">Add comment</NavLink>
         <NavLink to="/list" className="btn btn-sm btn-nav">All comments</NavLink>
-        <NavLink to="/auth" className="btn btn-sm btn-nav">Login</NavLink>
+        <NavLink to="/login" className="btn btn-sm btn-nav">Login</NavLink>
+        <NavLink to="/logout" className="btn btn-sm btn-nav">Logout</NavLink>
       </section>
     )
   }
@@ -37,14 +41,15 @@ export class App extends Component {
                 
         <section className="app-content">
           <Switch>
+            <Route path="/home" component={Home} />
             <Route path="/post" render={ props =>(
               <PageLoader>
                 <AddComment {...props}/>
               </PageLoader>
             )}/>
             <Route path="/list" component={ViewComments} />
-            <Route path="/home" component={Home} />
-            <Route path="/auth" component={AuthPage} />
+            <Route path="/login" component={LoginPage} />
+            <Route path="/logout" component={LogoutPage} />
             <Route path="/" exact component={Home} />
           </Switch>  
           {/*
@@ -55,6 +60,12 @@ export class App extends Component {
         
       </div>
     );
+  }
+}
+
+const mapStateToProps = state => {
+  return {
+    auth: state.auth
   }
 }
 /**

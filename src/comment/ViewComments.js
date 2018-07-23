@@ -11,7 +11,7 @@ import './ViewComments.scss';
 
 export class ViewComments extends React.Component{
   loadComments = () =>{
-    if (this.props.comments.length==0){
+    if (this.props.comments.length===0){
       return (<h1>No comments to show, try Fetch or ADD COMMENT.</h1>);
     }else {
       return(

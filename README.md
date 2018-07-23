@@ -2,6 +2,8 @@
 
 In this project we perform Jest excercises showed in Udemy training [Advanced React and Redux](https://www.udemy.com/react-redux-tutorial/learn/v4/overview).
 
+In addition to testing number of other concepts are tested: HOC, custom redux middleware and authentication using JWT. In the branch for authetication testing (auth) I used separate project as [backend api](https://github.com/dmijatovic/node-mongo-auth-api). In order to have complete authorization functionality properly working the both projects should be running on your local machine at the same time.
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app). Then I ejected and added support for SCSS files in the webpack configuration. You can find the most recent version of create-react-app guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
 
 ## Available Scripts
@@ -34,6 +36,8 @@ See the section about [deployment](#deployment) for more information.
 
 ## Folder structure
 
+The folder structure is experimental. I chose to use functional folders setup and folder and naming rather than commonly used 'components' folder.  I am interessted to see what is the experience over the time. I find important for specific approach to remain logical over longer period of time. I setup the folder structure in the most logical way for me at that point in time and I come back to the project after few weeks I test if I still can find my way around and what still seems logical and what not. I change than what does not seem logical anymore. These test projects are ideal for these tests because I access them incidentally.     I 
+
 After creation, your project should look like this:
 
 ```
@@ -45,14 +49,16 @@ my-app/
     index.html
     favicon.ico
   src/
+    auth/...components
     comment/...components
+    home/...components
     img/
       logo.svg
-    modal/...component
     store/...redux-store
     styles/
       ...partials.scss
       index.scss
+    ui/...shared components
     App.scss
     App.js
     App.test.js
@@ -85,3 +91,9 @@ It renders React components without browser. It has 3 renedering modes:
 ### Axios, Redux-Promise and Moxios
 
 These three work very well together for integrating http calls into a redux store (axios and redux-promise, see store action and reducer for fetchComments). For (integration) testing moxios is used to mock axios http calls (from JSDOM there is no external call possible).
+
+
+## Notes about authentication with JWT and node-mongo-auth-api
+
+In the auth branch there is a authorization demo using JWT. This project holds react part of the authorization. Another project [node-mongo-auth-api](https://github.com/dmijatovic/node-mongo-auth-api) is used by this front-end to connect to back-end api. Both projects are assumend to be running on same machine and on the localhost. Backend api runs on port 3001 while front-end runs on port 3000. See backend project on how you can set-up this part. Note that backend consist of nodejs, express and mongodb and that mongodb is setup using Docker.
+

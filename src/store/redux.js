@@ -2,8 +2,12 @@ import React from 'react';
 import { Provider }from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 
+// emptyMiddleware - does not do much - just logs
+// promiseResolver - resolves the promise if action payload is promise
 import { emptyMiddleware, promiseResolver } from './middleware';
 //import reduxPromise from 'redux-promise';
+//enables action creator to dispatch actions  
+import reduxThunk from 'redux-thunk';
 import reducers from './reducers';
 
 /**
@@ -19,7 +23,8 @@ export default ({ children, initialState={} }) => {
     initialState,
     applyMiddleware(
       emptyMiddleware,
-      promiseResolver
+      promiseResolver,
+      reduxThunk
     )
   )
   return(
