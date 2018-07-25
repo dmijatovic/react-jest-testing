@@ -1,6 +1,6 @@
 //React
 import React, { Component } from 'react';
-import { Switch, Route, NavLink, Link } from 'react-router-dom';
+import { Switch, Route, NavLink } from 'react-router-dom';
 //Redux
 import {connect} from 'react-redux';
 import { fetchComments } from 'store/actions';
@@ -12,7 +12,6 @@ import PageLoader from 'ui/PageLoader';
 import Home from 'home/home';
 import AddComment from 'comment/AddComment';
 import ViewComments from 'comment/ViewComments';
-import AuthPage from 'auth/AuthPage';
 import LoginPage from 'auth/LoginPage';
 import LogoutPage from 'auth/LogoutPage';
 

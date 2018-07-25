@@ -20,7 +20,7 @@ const AuthGuard = (ChildComponent) => {
     }
     shouldNavigateAway(){
       //debugger
-      if (this.props.auth.allow){
+      if (this.props.auth){
         console.log("Authorized");
       }else{
         console.log("Not authorized");
@@ -39,7 +39,7 @@ const AuthGuard = (ChildComponent) => {
    */
   function mapStateToProps(state){
     return {
-      auth: state.auth 
+      auth: state.auth.token!=null
     }
   }
   /**

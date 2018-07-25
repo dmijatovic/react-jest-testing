@@ -122,7 +122,7 @@ const mapStateToProps = state =>{
   //debugger
   return {
     errorMsg: state.auth.err.responseText,
-    authenticated: state.auth.allow
+    authenticated: state.auth.token != null
   }
 }
 

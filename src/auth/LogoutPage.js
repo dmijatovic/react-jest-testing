@@ -3,8 +3,13 @@ import { connect } from 'react-redux';
 import * as actions from 'store/actionAuth';
 
 class LogoutPage extends React.Component{
+  componentDidMount(){
+    //console.log("Logoutpage...props...", this.props);
+    //logout user - dispatch?
+    this.props.authLogout();
+  }
   logoutMsg(){
-    if (this.props.auth.allow){
+    if (this.props.auth){
       return(
         <p>You are still logged in!</p>
       )
@@ -25,9 +30,9 @@ class LogoutPage extends React.Component{
 }
 
 const mapStateToProps = state =>{
-  debugger
+  //debugger
   return {
-    auth: state.auth
+    auth: state.auth.token!=null
   }
 }
 

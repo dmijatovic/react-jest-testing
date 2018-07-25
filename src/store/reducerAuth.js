@@ -3,9 +3,10 @@
 import * as actionType from './actionTypes';
 
 const initState={
-  allow: false,
+  //allow: false,
   loginPath: 'login',
-  token:getTokenFromSession(),
+  sessionKey:'app-token',
+  token:getTokenFromSession('app-token'),
   err:''
 }
 
@@ -15,28 +16,32 @@ export default (state=initState, action)=>{
     case actionType.SIGN_UP_OK:
     case actionType.AUTH_LOGIN:
       //store token
-      storeToken(action.payload);
+      storeToken({
+        key: state.sessionKey,
+        token: action.payload
+      });
       //debugger 
       return {
         ...state,
-        allow: action.payload!==null,
+        //allow: action.payload!==null,
         token: action.payload
       };
     case actionType.SIGN_IN_ERR:
     case actionType.SIGN_UP_ERR:
       return {
         ...state,
-        allow: false,
+        //allow: false,
         token: null,
         err: action.payload
       };
     case actionType.AUTH_LOGOUT:
+      //debugger
       //remove token from session
-      storeToken("");
+      removeToken("app-token");
       //return empty
       return {
         ...state,
-        allow: action.payload,
+        //allow: action.payload,
         token: null
       };
     default:
@@ -44,8 +49,8 @@ export default (state=initState, action)=>{
   }
 }
 
-export function storeToken(token){
-  debugger 
+export function storeToken({key, token}){
+  //debugger 
   if (sessionStorage){
     sessionStorage.setItem('app-token', token)
   }else{
@@ -53,12 +58,19 @@ export function storeToken(token){
   }
 }
 
-export function getTokenFromSession(){
+export function getTokenFromSession(key){
   //debugger
   if (sessionStorage){
-    let token = sessionStorage.getItem('app-token');
+    let token = sessionStorage.getItem(key);
     return token;
   } else {
     return "";
+  }
+}
+
+export function removeToken(key){
+  //debugger 
+  if (sessionStorage){
+    sessionStorage.removeItem(key);
   }
 }
