@@ -57,7 +57,7 @@ export const signUp=({email,password}) => dispatch => {
       payload: d.data.token
     });
   }).catch((e)=>{
-    debugger
+    //debugger
     //dispatch error
     dispatch({
       type: actionType.SIGN_UP_ERR,
@@ -71,7 +71,7 @@ function makePostRequest(url,payload){
 }
 
 function getAxiosErrPayload(err){
-  debugger
+  //debugger
   if (err.response) {
     if (err.response.status===401){
       //console.error("401 - username or password incorrect");
