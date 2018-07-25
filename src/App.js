@@ -19,15 +19,22 @@ import LogoutPage from 'auth/LogoutPage';
 
 export class App extends Component {
   getNavLinks(){
-    return (
-      <section className="app-navigation">
-        <NavLink to="/home" className="btn btn-sm btn-nav">Home</NavLink>
-        <NavLink to="/post" className="btn btn-sm btn-nav">Add comment</NavLink>
-        <NavLink to="/list" className="btn btn-sm btn-nav">All comments</NavLink>
-        <NavLink to="/login" className="btn btn-sm btn-nav">Login</NavLink>
-        <NavLink to="/logout" className="btn btn-sm btn-nav">Logout</NavLink>
-      </section>
-    )
+    let links = [
+      <NavLink key="home" to="/home" className="btn btn-sm btn-nav">Home</NavLink>
+    ];
+    if (this.props.auth){
+      links.push(
+        <NavLink key="post" to="/post" className="btn btn-sm btn-nav">Add comment</NavLink>,
+        <NavLink key="list" to="/list" className="btn btn-sm btn-nav">All comments</NavLink>,
+        <NavLink key="logout" to="/logout" className="btn btn-sm btn-nav">Logout</NavLink>
+      )
+    }else {
+      links.push(
+        <NavLink key="login" to="/login" className="btn btn-sm btn-nav">Login</NavLink>
+      )
+    }
+    //debugger
+    return links;
   }
   render() {
     return (
@@ -36,9 +43,9 @@ export class App extends Component {
           <img src={logo} className="app-logo" alt="logo" />
           <h1 className="app-title">Welcome to React - Jest demo</h1>
         </header>
-        
-        {this.getNavLinks()}
-                
+        <section className="app-navigation">
+          {this.getNavLinks()}
+        </section>      
         <section className="app-content">
           <Switch>
             <Route path="/home" component={Home} />
@@ -64,8 +71,9 @@ export class App extends Component {
 }
 
 const mapStateToProps = state => {
+  //debugger
   return {
-    auth: state.auth
+    auth: state.auth.token!=null
   }
 }
 /**
@@ -79,5 +87,6 @@ const mapActionsToProp = dispatch =>{
 }
 
 export default connect(
-  null, mapActionsToProp
+  mapStateToProps, 
+  mapActionsToProp
 )(App);

@@ -72,23 +72,30 @@ function makePostRequest(url,payload){
 
 function getAxiosErrPayload(err){
   debugger
-  if (err.response.status===401){
-    //console.error("401 - username or password incorrect");
-    return {
-      status: 401,
-      responseText: "Username or password incorect"
+  if (err.response) {
+    if (err.response.status===401){
+      //console.error("401 - username or password incorrect");
+      return {
+        status: 401,
+        responseText: "Username or password incorect"
+      }
+    } else if (err.response.status===422){
+      //console.error("422 - signup process failed ");
+      return {
+        status: err.response.data.status,
+        responseText: err.response.data.msg
+      }
+    }else{
+      console.error(err);
+      return {
+        status: err.response.status,
+        responseText: err.response.statusText
+      }
     }
-  } else if (err.response.status===422){
-    //console.error("422 - signup process failed ");
+  } else {
     return {
-      status: err.response.data.status,
-      responseText: err.response.data.msg
-    }
-  }else{
-    console.error(err);
-    return {
-      status: err.response.status,
-      responseText: err.response.statusText
+      status: 500,
+      responseText: err.message
     }
   }
 }

@@ -50,6 +50,19 @@ export const Home = (props) => (
         with actual response returned from axios. Note that error response is also included
         as payload. 
       </p>
+
+      <h3 className="page-subtitle">Authentication with JWT and Passport</h3>
+      <p className="page-paragraph">
+        In the auth branch there is a authorization demo using JWT. 
+        This project holds react part of the authorization. 
+        Another project <a href="https://github.com/dmijatovic/node-mongo-auth-api">
+        node-mongo-auth-api</a> is used by this front-end to connect to 
+        back-end api. Both projects are assumend to be running on same machine and on the localhost. 
+        Backend api runs on port 3001 while front-end runs on port 3000. 
+        See backend project on how you can set-up this part. 
+        Note that backend consist of nodejs, express and mongodb and 
+        that mongodb is setup using Docker.
+      </p>
     </div>
   </PageLoader>
 );

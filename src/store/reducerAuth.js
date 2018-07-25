@@ -19,7 +19,7 @@ export default (state=initState, action)=>{
       //debugger 
       return {
         ...state,
-        allow: action.payload!=="",
+        allow: action.payload!==null,
         token: action.payload
       };
     case actionType.SIGN_IN_ERR:
@@ -27,7 +27,7 @@ export default (state=initState, action)=>{
       return {
         ...state,
         allow: false,
-        token: "",
+        token: null,
         err: action.payload
       };
     case actionType.AUTH_LOGOUT:
@@ -37,7 +37,7 @@ export default (state=initState, action)=>{
       return {
         ...state,
         allow: action.payload,
-        token: ""
+        token: null
       };
     default:
       return state;
@@ -54,7 +54,7 @@ export function storeToken(token){
 }
 
 export function getTokenFromSession(){
-  debugger
+  //debugger
   if (sessionStorage){
     let token = sessionStorage.getItem('app-token');
     return token;
